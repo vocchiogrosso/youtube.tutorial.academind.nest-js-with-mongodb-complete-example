@@ -9,7 +9,7 @@ NestJS
 
 | Version | Supported          |
 | ------- | ------------------ |
-| > 8.0   | :x:                |
+| < 8.0   | :x:                |
 
 ## Reporting a Vulnerability
 
