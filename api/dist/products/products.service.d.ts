@@ -1,15 +1,23 @@
+import { Model } from 'mongoose';
 import { Product } from "./product.model";
 export declare class ProductsService {
+    private readonly productModel;
     private products;
-    insertProduct(title: string, desc: string, price: number): string;
-    getProducts(): Product[];
-    getSingleProduct(productId: string): {
+    constructor(productModel: Model<Product>);
+    insertProduct(title: string, desc: string, price: number): Promise<string>;
+    getProducts(): Promise<{
         id: string;
         title: string;
         description: string;
         price: number;
-    };
-    updateProduct(productId: string, title: string, desc: string, price: number): void;
-    deleteProduct(prodId: any): void;
+    }[]>;
+    getSingleProduct(productId: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        price: number;
+    }>;
+    updateProduct(productId: string, title: string, desc: string, price: number): Promise<void>;
+    deleteProduct(prodId: any): Promise<void>;
     private findProduct;
 }

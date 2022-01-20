@@ -2,16 +2,21 @@ import { ProductsService } from './products.service';
 export declare class ProductsController {
     private readonly productsService;
     constructor(productsService: ProductsService);
-    addProduct(prodTitle: string, prodDesc: string, prodPrice: number): {
+    addProduct(prodTitle: string, prodDesc: string, prodPrice: number): Promise<{
         id: string;
-    };
-    getAllProducts(): import("./product.model").Product[];
-    getProduct(prodId: string): {
+    }>;
+    getAllProducts(): Promise<{
         id: string;
         title: string;
         description: string;
         price: number;
-    };
-    updateProduct(prodId: string, prodTitle: string, prodDesc: string, prodPrice: number): any;
-    removeProduct(prodId: string): any;
+    }[]>;
+    getProduct(prodId: string): Promise<{
+        id: string;
+        title: string;
+        description: string;
+        price: number;
+    }>;
+    updateProduct(prodId: string, prodTitle: string, prodDesc: string, prodPrice: number): Promise<any>;
+    removeProduct(prodId: string): Promise<any>;
 }
